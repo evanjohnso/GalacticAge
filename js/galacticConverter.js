@@ -4,6 +4,14 @@ export class galacticConverter {
     this.birthday = birthday;
   }
 
+  getTodaysDate() {
+    let today = new Date();
+    let year = today.getFullYear();
+    let month = today.getMonth(); //returns 0-11 index
+    let date = today.getDate();
+    return `${year}-${month}-${date}`;
+  }
+
   _calculateAge() {
 
   }

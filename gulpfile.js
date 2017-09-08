@@ -7,6 +7,22 @@ var utilities = require('gulp-util');
 var del = require('del');
 var jshint = require('gulp-jshint');
 var buildProduction = utilities.env.production;
+
+// Bower manages all front end dependencies like jquery
+// Bootstrap, and for this app, Moment.js
+// The corresponding Gulp task will pull from Node package
+// Manager all the Bower Dependencies depending on their
+// File extension(js/css/html), concat them into one vendor
+// File, Minify it, and toss it to its final destination
+// In the buil directory. That is why we only need to Link
+// One file in our html page. (vendor.min.js)/(vendor.min.css)
+
+// We don't have to do this, and could link jquery, boostrap, moment,
+// And whatever else we're doing, but it's cleaner to have a task manager
+// Do it for us. This is what is happening when we run npm install and it pulls
+// All of our dependencies listed in the package.json object
+// It's just doing it for the front end specifically 
+
 var lib = require('bower-files')({ //special case for bootstrap,
   "overrides":{                    //have to tell bower-files package
     "bootstrap" : {                //exactly where to find the bootstrap
@@ -24,9 +40,9 @@ var babelify = require("babelify");
 //pull in JS files and concat into one file,
 //minify, and throw into build directory
 gulp.task('bowerJS', function () {
-  return gulp.src(lib.ext('js').files)
-    .pipe(concat('vendor.min.js'))
-    .pipe(uglify())
+  return gulp.src(lib.ext('js').files) //returns all files that
+    .pipe(concat('vendor.min.js'))     //are mentioned in bower.json
+    .pipe(uglify())                    //file (moment, bootstrap, jquery)
     .pipe(gulp.dest('./build/js'));
 });
 
