@@ -4,6 +4,14 @@ export class galacticConverter {
     this.birthday = birthday;
   }
 
+  _calculateAge() {
+
+  }
+
+  yearsToSeconds(years) {
+    return Math.round(years * 365.25 * 24 * 3600);
+  }
+
   // earthYears() {
   //   return this.birthday + 10;
   // }
