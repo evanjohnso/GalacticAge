@@ -76,7 +76,9 @@ gulp.task('serve', function() {
       index: "index.html"
     }
   });
-  gulp.watch(['js/*.js'], ['jsBuild']);
+  //any JS, HTML, or CSS files will auto run
+  //in the browser if gulp serve has been initiated
+  gulp.watch(['js/*.js','css/*.css', 'index.html'], ['jsBuild']);
   gulp.watch(['bower.json'], ['bowerBuild']);
 });
 

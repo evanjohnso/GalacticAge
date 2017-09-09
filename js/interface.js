@@ -8,10 +8,13 @@ $(document).ready(function() {
     myConverter = new converter(bday);
     $("input:checkbox[name=planets]:checked").each(function() {
       let thisPlanet = $(this).val();
-      $('#time').append(`If you lived on ${thisPlanet}, you would be ${myConverter.calculateAgeByPlanet(thisPlanet)} years old!!` + "<br>");
-      $("#secondForm").fadeIn(2000);
+      $('#time').append(`<li>If you lived on ${thisPlanet}, you would be ${myConverter.calculateAgeByPlanet(thisPlanet)} years old!!`);
     });
+    setTimeout(function() {
+      $("#secondForm").fadeIn();
+    }, 5000);
   });
+
   $("#secondForm").submit(function(e){
     e.preventDefault();
     var gender = $("input:radio[name=gender]:checked").val();
@@ -19,11 +22,13 @@ $(document).ready(function() {
     let age = myConverter._calculateYears();
     let lifeLeft = myConverter.lifeExpectancy(age, gender, obese);
     if (lifeLeft === 0) {
-      alert("Shit mate, this is probably the last hoorah, have a beer!");
+      $("#average").text("Shit mate, this is probably the last hoorah, have a beer!");
     } else if (lifeLeft < 0) {
-      alert(`You're doing great, you've lived about ${lifeLeft * -1} years, longer than the average!`);
+      $("#average").text(`You're doing great, you've lived about ${lifeLeft * -1} years longer than the average!`);
     } else if (lifeLeft >0) {
-      alert(`Keep on trucking, you've got about ${lifeLeft} years before you're at the average age!`);
+      $("#average").text(`Keep on trucking, you've got about ${lifeLeft} years before you're at the average age, in earth years!`);
     }
+    $("#average").fadeIn(1000);
+    $(this).hide();
   });
 });

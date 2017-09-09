@@ -9,9 +9,19 @@
      <link type="text/css" rel="stylesheet" href="css/main.css">
   </head>
   <body>
-    <div class="container well">
+    <div class="container well" id="main">
+      <div class="jumbotron">
+        <h2>Welcome to the Cosmic Calculator!</h2>
+      </div>
+      <div class="container well" id="blurb">
+        <p>Curious how old you are on a few planets in the Milky Way?</p>
+        <p>Look no further!</p>
+        <small><strong>Disclosure:</strong> This calculates cosmic age using
+          24hr earth day and does not account for the unique rotation rates
+          of individual planets.</small>
+      </div>
       <!-- first form -->
-      <form id="birthday">
+      <form id="birthday" class="container well">
         <div class="form-group">
           <label for="bday">Birthday:</label>
           <input type="date" name="bday" id="bday">
@@ -21,10 +31,13 @@
           <label class="checkbox-inline"><input type="checkbox" name="planets" value="mars">Mars</label>
           <label class="checkbox-inline"><input type="checkbox" name="planets" value="jupiter">Jupiter</label>
         </div>
-        <button type="submit" name="btn">Calculate</button>
+        <button type="submit" name="btn btn-info">Calculate</button>
       </form>
       <!-- initial result -->
-      <h3 id="time"></h3>
+      <ul id="time">
+
+      </ul>
+      <!-- <h3 id="time"></h3> -->
       <!-- second form -->
       <form class="container well" id="secondForm">
         <h4>Curious how you stand verses the average?</h4>
@@ -66,6 +79,9 @@
         </div>
         <button type="submit" name="btn">Check it out</button>
       </form>
+      <div class="container well" id="average">
+
+      </div>
     </div>
   </body>
 </html>

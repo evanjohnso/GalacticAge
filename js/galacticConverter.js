@@ -22,11 +22,10 @@ export class galacticConverter {
     if (months < 0 || months === 0 && days < 0) {
       years --;
     }
-    return years;
+    return years; //earth years
   }
   calculateAgeByPlanet(planet) {
     let years = 0;
-    // let age = this._calculateYears();
     if (planet === "mercury") {
       years = (this._calculateYears() / 0.24).toFixed(3);
     } else if (planet === "venus") {
@@ -36,7 +35,7 @@ export class galacticConverter {
     } else if (planet === "jupiter") {
        years = (this._calculateYears() / 11.86).toFixed(3);
     } else {
-      years = "Enter a planet I can understand, mate";
+      years = null;
     }
     return years;
 
@@ -48,7 +47,6 @@ export class galacticConverter {
     const dayMili = 86400;
     return Math.round(years * yearsMili);
   }
-//https://www.statista.com/statistics/270861/life-expectancy-by-continent/
 //General stats
   lifeExpectancy(age, gender, obese) {
     let avgLife = 75;
@@ -63,18 +61,5 @@ export class galacticConverter {
     //logic for how to handle negative. 0, and positive lifeLeft
     //will exist in front end
     return lifeLeft;
-
   }
-
-
-
-  // earthYears() {
-  //   return this.birthday + 10;
-  // }
-
-  // convert(planetFunction) {
-  //   return this.planetFunction(this.birthday);
-  // }
-
-
 }

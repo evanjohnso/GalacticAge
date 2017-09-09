@@ -1,12 +1,46 @@
+html {
+  position: relative;
+  min-height: 100%;
+}
 body {
-  /*background: url("/images/background.jpg");*/
+  background: url("https://candiasanders.files.wordpress.com/2014/03/mtr.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
   color: black;
-  background: blue;
 }
 
-#secondForm {
+#secondForm, #average {
   display: none;
+}
+
+.jumbotron {
+  background: inherit;
+  padding-bottom: 0px;
+  margin-bottom: 0px;
+}
+.jumbotron h2 {
+  text-align: center;
+  font-size: 4em;
+  color: white;
+  font-weight: 700;
+}
+
+#main {
+  border: none;
+  background: inherit;
+}
+
+#blurb p{
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+}
+#blurb {
+  color: white;
+  background: inherit;
+  border: none;
+}
+#time {
+  color: white;
 }

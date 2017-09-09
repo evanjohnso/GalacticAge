@@ -26,7 +26,7 @@ describe('GalacticAge', function() {
       expect(converted._calculateYears()).toEqual(26);
     });
   it('should calculate age properly if birthday is tomorrow', function() {
-      let converted = new converter("1991-8-9");
+      let converted = new converter("1991-8-12");
       expect(converted._calculateYears()).toEqual(25);
     });
   it('should calculate age properly if birthday was yesterday', function() {
