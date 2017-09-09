@@ -4,7 +4,7 @@ export class galacticConverter {
     this.birthday = birthday;
   }
 
-  getTodaysDate() {
+  _getTodaysDate() {
     let today = new Date();
     let year = today.getFullYear();
     let month = today.getMonth(); //returns 0-11 index
@@ -12,13 +12,61 @@ export class galacticConverter {
     return `${year}-${month}-${date}`;
   }
 
-  _calculateAge() {
+  _calculateYears() {
+    const todaysDate = this._getTodaysDate();
+    let birthdaySplit = this.birthday.split("-");
+    let dateSplit = todaysDate.split("-");
+    let years = dateSplit[0] - birthdaySplit[0];
+    let months = dateSplit[1] - birthdaySplit[1];
+    let days = dateSplit[2] - birthdaySplit[2];
+    if (months < 0 || months === 0 && days < 0) {
+      years --;
+    }
+    return years;
+  }
+  calculateAgeByPlanet(planet) {
+    let years = 0;
+    // let age = this._calculateYears();
+    if (planet === "mercury") {
+      years = (this._calculateYears() / 0.24).toFixed(3);
+    } else if (planet === "venus") {
+      years = (this._calculateYears() / 0.62).toFixed(3);
+    }  else if (planet === "mars") {
+      years = (this._calculateYears() / 1.88).toFixed(3);
+    } else if (planet === "jupiter") {
+       years = (this._calculateYears() / 11.86).toFixed(3);
+    } else {
+      years = "Enter a planet I can understand, mate";
+    }
+    return years;
 
   }
 
   yearsToSeconds(years) {
-    return Math.round(years * 365.25 * 24 * 3600);
+    const yearsMili = 31556926;
+    const monthMili = 2629743;
+    const dayMili = 86400;
+    return Math.round(years * yearsMili);
   }
+//https://www.statista.com/statistics/270861/life-expectancy-by-continent/
+//General stats
+  lifeExpectancy(age, gender, obese) {
+    let avgLife = 75;
+    if (obese) {
+      avgLife -=10;
+    } else if (gender === "male") {
+      avgLife -= 3;
+    } else if (gender === "female") {
+      avgLife += 2;
+    }
+    let lifeLeft = age - avgLife;
+    //logic for how to handle negative. 0, and positive lifeLeft
+    //will exist in front end
+    return lifeLeft;
+
+  }
+
+
 
   // earthYears() {
   //   return this.birthday + 10;
