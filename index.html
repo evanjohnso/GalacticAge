@@ -3,21 +3,66 @@
   <head>
     <meta charset="utf-8">
     <title>Galactic Age Converter</title>
-     <!-- <script src="bower_components/jquery/dist/jquery.min.js"></script>
-     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
-    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script> -->
      <link rel="stylesheet" href="build/css/vendor.css">
      <script src="build/js/vendor.min.js"></script>
      <script type="text/javascript" src="build/js/app.js"></script>
+     <link type="text/css" rel="stylesheet" href="css/main.css">
   </head>
   <body>
     <div class="container well">
-      <p>The time is</p>
-      <h3 id="time"></h3>
       <form id="birthday">
-        <label for="bday">Birthday:</label>
-        <input type="date" name="bday" id="bday">
-        <button type="submit" name="btn">Submit</button>
+        <div class="form-group">
+          <label for="bday">Birthday:</label>
+          <input type="date" name="bday" id="bday">
+          <p>What planet are you curious about?</p>
+          <label class="checkbox-inline"><input type="checkbox" name="planets" value="mercury">Mercury</label>
+          <label class="checkbox-inline"><input type="checkbox" name="planets" value="venus">Venus</label>
+          <label class="checkbox-inline"><input type="checkbox" name="planets" value="mars">Mars</label>
+          <label class="checkbox-inline"><input type="checkbox" name="planets" value="jupiter">Jupiter</label>
+        </div>
+        <button type="submit" name="btn">Calculate</button>
+      </form>
+      <p>Your age is</p>
+      <h3 id="time"></h3>
+      <form class="container well" id="secondForm">
+        <h4>Curious how you stand verses the average?</h4>
+        <div class="form-group">
+          <h3>How do you identify?</h3>
+          <div class="radio">
+            <label>
+              <input type="radio" name="gender" value="male" checked>
+              Male
+            </label>
+          </div>
+          <div class="radio">
+            <label>
+              <input type="radio" name="gender" value="female">
+              Female
+            </label>
+          </div>
+          <div class="radio">
+            <label>
+              <input type="radio" name="gender" value="other" >
+              Other
+            </label>
+          </div>
+        </div>
+        <div class="form-group">
+          <h3>I know these are personal, but are you medically overweight?</h3>
+          <div class="radio">
+            <label>
+              <input type="radio" name="obese" value="true" >
+              Yes
+            </label>
+          </div>
+          <div class="radio">
+          <label>
+            <input type="radio" name="obese" value="false" >
+            Nope
+          </label>
+        </div>
+        </div>
+        <button type="submit" name="btn">Check it out</button>
       </form>
     </div>
   </body>

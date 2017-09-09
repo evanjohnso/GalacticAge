@@ -1,0 +1,12 @@
+body {
+  /*background: url("/images/background.jpg");*/
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  color: black;
+  background: blue;
+}
+
+#secondForm {
+  display: none;
+}

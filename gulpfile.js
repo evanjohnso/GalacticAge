@@ -21,7 +21,7 @@ var buildProduction = utilities.env.production;
 // And whatever else we're doing, but it's cleaner to have a task manager
 // Do it for us. This is what is happening when we run npm install and it pulls
 // All of our dependencies listed in the package.json object
-// It's just doing it for the front end specifically 
+// It's just doing it for the front end specifically
 
 var lib = require('bower-files')({ //special case for bootstrap,
   "overrides":{                    //have to tell bower-files package
