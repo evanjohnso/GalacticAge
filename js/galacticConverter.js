@@ -52,14 +52,14 @@ export class galacticConverter {
 //General stats
   lifeExpectancy(age, gender, obese) {
     let avgLife = 75;
-    if (obese) {
+    if (obese === "true") {
       avgLife -=10;
     } else if (gender === "male") {
       avgLife -= 3;
     } else if (gender === "female") {
       avgLife += 2;
     }
-    let lifeLeft = age - avgLife;
+    let lifeLeft = avgLife - age;
     //logic for how to handle negative. 0, and positive lifeLeft
     //will exist in front end
     return lifeLeft;
