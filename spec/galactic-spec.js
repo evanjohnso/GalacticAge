@@ -49,4 +49,14 @@ describe('GalacticAge', function() {
       let converted = new converter("1991-8-7");
       expect(converted.calculateAgeByPlanet("jupiter")).toEqual("2.192");
     });
+  it('should calculate difference in user age and average age for healthy identify as other', function() {
+    let converted = new converter("1991-8-7");
+    let age = converted._calculateYears();
+    expect(converted.lifeExpectancy(age, "other", "false")).toEqual(49);
+  });
+  it('should calculate difference in user age and average age for overweight male', function() {
+      let converted = new converter("1991-8-7");
+      let age = converted._calculateYears();
+      expect(converted.lifeExpectancy(age, "male", "true")).toEqual(39);
+    });
 });
